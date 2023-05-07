@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<HTML><HEAD>
+	<TITLE>HW6 Events Search</TITLE>
+	<script src="my_function.js"></script>
+	<script src="jquery-3.6.3.js"></script>
+	<link rel="stylesheet" href="my_style.css"></link>
+</HEAD>
+<BODY>
+<div class="search_area">
+<div class="search_heading"><h class="search_title">Events Search</h></div>
+<form id="search_form" METHOD="GET">
+	<table class="search_table"><tr><td class="search_input" colspan=2>
+	<label for="keyword" class="required">Keyword</label><br>
+	<INPUT class="text" NAME="keyword" TYPE="text" id="keyword" required>
+	</td></tr>
+	<tr>
+	<td class="search_input" style="width: 425px;">
+	<label for="distance">Distance(miles)</label><br>
+	<INPUT class="text" NAME="radius" TYPE="number" placeholder="10" id="distance">
+	</td>
+	<td class="search_input">
+	<label for="category" class="required">Category</label><br>
+	<SELECT NAME="category" id="category">
+	<OPTION SELECTED>Default</OPTION>
+	<OPTION>Music</OPTION>
+	<OPTION>Sports</OPTION>
+	<OPTION>Arts & Theatre</OPTION>
+	<OPTION>Film</OPTION>
+	<OPTION>Miscellaneous</OPTION></SELECT>
+	</td>
+	</tr>
+	<tr><td class="search_input" colspan=2>
+	<label for="location" class="required">Location</label>
+	<INPUT id="checkBox" TYPE="checkbox" NAME="auto-locate" onclick="show_locateBox()">
+	<label for="checkBox" style="color:white;">Auto-Detection Location</label><br>
+	<INPUT class="text" id="location" TYPE="text" required>
+	</td></tr></table>
+	<div class="button_area">
+	<input class="button" style="background:#FF8800;box-shadow:0px 3px 0px #BB5500;" type=button name="search" value="SEARCH" onClick="search_events(this.form)">
+	<input class="button" style="background:#0066FF;box-shadow:0px 3px 0px #003377;" TYPE=button VALUE="CLEAR" onClick="clean_all()">
+	</div>
+</form></div>
+<div class="result_area"><table id="events_table"></table></div>
+<div id="event_card" style="display: none"><table id="event_table"></table></div>
+<div id="venue_toggle" style="display: none">
+	<div class="toggle_title">Show Venue Details</div>
+	<div id="arrow" onClick="click_toggle()"></div>
+</div>
+<div id="venue_card" style="display: none"><table id="venue_table"></table></div>
+</BODY></HTML>
